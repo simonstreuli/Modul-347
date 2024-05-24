@@ -38,11 +38,11 @@
 
 1. Befehle, die Sie ausgeführt haben und erklärung zu den Befehlen, die die einzelnen Komponenten beschreiben.
    1. `docker pull nginx`
-   2. `docker tag nginx:latest kaama13/m347:nginx` ~~~~
+   2. `docker tag nginx:latest simonabc/m347:nginx` ~~~~
    3. `docker pull mariadb`
-   4. `docker tag mariadb:latest kaama02/m347:mariadb`
-   5. `docker push kaama02/m347:nginx`
-   6. `docker push kaama02/m347:mariadb`
+   4. `docker tag mariadb:latest simonabc/m347:mariadb`
+   5. `docker push simonabc/m347:nginx`
+   6. `docker push simonabc/m347:mariadb`
 
 `docker tag nginx:latest username/reponame:nginx`: Dieser Befehl nimmt das Docker-Image genannt nginx mit dem Tag latest (was die neueste Version des Images angibt) und erstellt ein neues Tag für dieses Image. Das neue Tag lautet username/reponame:nginx.
 Tags werden verwendet, um verschiedene Versionen desselben Images zu kennzeichnen, z. B. latest, v1.0, development usw. So können Benutzer und Systeme bestimmte Versionen eines Images identifizieren und verwenden.
