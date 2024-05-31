@@ -1,0 +1,9 @@
+FROM php:8.0-apache
+
+Workdir /var/www/html/
+COPY info.php .
+COPY db.php .
+
+Run docker-php-ext-install mysqli
+
+Expose 80
