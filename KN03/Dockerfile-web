@@ -1,0 +1,13 @@
+# Dockerfile für die Webseite
+
+# Basis-Image
+FROM php:8.0-apache
+
+# Dateien kopieren
+COPY info.php /var/www/html/
+COPY db.php /var/www/html/
+
+# PHP mysqli installieren
+RUN docker-php-ext-install mysqli
+
+EXPOSE 80
