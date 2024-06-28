@@ -1,0 +1,34 @@
+version: '3.8'
+
+services:
+  web:
+    build: ./Web
+    container_name: m347-kn04a-web
+    ports:
+      - "8080:80"
+    networks:
+      m347-kn04a-network:
+        ipv4_address: 172.10.5.10
+
+  db:
+    image: mariadb:latest
+    container_name: m347-kn04a-db
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: noris
+      MYSQL_DATABASE: mysql
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: password
+    networks:
+      m347-kn04a-network:
+        ipv4_address: 172.10.5.11
+
+networks:
+  m347-kn04a-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.10.0.0/16
+          ip_range: 172.10.5.0/24
+          gateway: 172.10.5.254

@@ -1,0 +1,31 @@
+version: "3"
+
+services:
+  m347-kn04a-web:
+    image: norisgiro/m347:kn02b-web
+    networks:
+      - m347-network
+    ports:
+      - "8080:80"
+    container_name: m347-kn04a-web
+
+  m347-kn04a-db:
+    image: mariadb:latest
+    networks:
+      - m347-network
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: mysql
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: password
+    container_name: m347-kn04a-db
+
+networks:
+  m347-network:
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.10.0.0/16
+          ip_range: 172.10.5.0/24
+          gateway: 172.10.5.254
+
